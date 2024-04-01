@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
-void main() {
+final TextEditingController textEditing_Controller = TextEditingController();
+
+void main(){
   return runApp(MyApp());
 }
 
@@ -13,23 +15,29 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text("Text to Speech")),
-        body: HomeView(),
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text("Text to Speech")
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.refresh),
+          onPressed: (){},
+        ),
+        body: TtsScreen(),
       ),
     );
   }
 }
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+class TtsScreen extends StatefulWidget {
+  const TtsScreen({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<TtsScreen> createState() => _TtsScreenState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _TtsScreenState extends State<TtsScreen> {
   final FlutterTts Tts = FlutterTts();
-  final TextEditingController textEditing_Controller = TextEditingController();
 
   speakText(String text) async {
     await Tts.setLanguage("zh-TW");
@@ -40,26 +48,24 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Padding(
-          padding: EdgeInsets.only(
-            left: 32,
-            right: 32,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            padding: EdgeInsets.all(24),
+            child: TextField(
+              controller: textEditing_Controller,
+              maxLines: 3,
+            )
           ),
-          child: TextField(
-            controller: textEditing_Controller,
-          ),
-        ),
-        SizedBox(
-          height: 12,
-        ),
-        ElevatedButton(
-          child: Text("Start"),
-          onPressed: () {
-            speakText(textEditing_Controller.text);
-          },
-        )
-      ]),
+          ElevatedButton(
+            child: Icon(Icons.volume_up),
+            onPressed: (){
+              speakText(textEditing_Controller.text);
+            },
+          )
+        ],
+      )
     );
   }
 }

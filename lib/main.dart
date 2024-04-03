@@ -21,7 +21,9 @@ class MyApp extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.refresh),
-          onPressed: (){},
+          onPressed: (){
+            textEditing_Controller.clear();
+          },
         ),
         body: TtsScreen(),
       ),

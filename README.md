@@ -5,7 +5,7 @@ It is to Text Convert Speech, Install the App on your mobile device and run it.
 
 ## Project Information
 Package Use:
-* flutter_tts v3.2.2: (Package Link)[https://github.com/gabeewang/flutter_tts_example-chinese]
+* flutter_tts v3.2.2: https://github.com/gabeewang/flutter_tts_example-chinese
 
 ## Getting Started
 This project is a starting point for a Flutter application.

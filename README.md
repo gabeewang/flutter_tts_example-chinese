@@ -1,6 +1,6 @@
-# tts
+# Flutter_tts(Text to Speech)
 
-A new Flutter project.
+A Flutter Example for flutter_tts Package.
 
 ## Getting Started
 

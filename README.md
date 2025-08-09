@@ -1,9 +1,13 @@
 # Flutter_tts(Text to Speech)
 
 A Flutter Example for flutter_tts Package.
+It is to Text Convert Speech, Install the App on your mobile device and run it.
+
+## Project Information
+Package Use:
+* flutter_tts v3.2.2: (Package Link)[https://github.com/gabeewang/flutter_tts_example-chinese]
 
 ## Getting Started
-
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
